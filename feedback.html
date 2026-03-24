@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NidoSync — Feedback de Usuarios</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+tailwind.config={theme:{extend:{colors:{sand:{50:'#fef8f3',100:'#f8f3ee',200:'#f2ede8',300:'#ece7e2',400:'#e6e2dd',500:'#ded9d4',600:'#cec5bc',700:'#7d766f',800:'#4c463f',900:'#2e2a26',950:'#1d1b19'},amber:{400:'#ffcc7f',500:'#D9AA60',600:'#b8956a'}},fontFamily:{headline:['Manrope'],body:['Plus Jakarta Sans']}}}}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:#fef8f3;color:#1d1b19}
+.font-headline{font-family:'Manrope',sans-serif}
+.material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 300,'GRAD' 0,'opsz' 24}
+.grad{background:linear-gradient(135deg,#2e2a26,#44403c);color:#fff}
+.grad:hover{opacity:.92;transform:translateY(-1px);box-shadow:0 8px 24px rgba(46,42,38,.2)}
+.glass{background:rgba(254,248,243,.82);backdrop-filter:blur(28px);-webkit-backdrop-filter:blur(28px)}
+.section-card{background:#fff;border:1px solid rgba(46,42,38,.04);border-radius:1.25rem;padding:1.75rem;margin-bottom:1.25rem;box-shadow:0 2px 12px rgba(46,42,38,.03)}
+
+/* Inputs — applied with !important to override Tailwind base */
+textarea.fb-input,input.fb-input{-webkit-appearance:none!important;-moz-appearance:none!important;appearance:none!important;background:#f8f3ee!important;border:none!important;border-width:0!important;border-radius:16px!important;padding:14px 20px!important;width:100%!important;font-family:'Plus Jakarta Sans',sans-serif!important;font-size:14px!important;color:#1d1b19!important;transition:background .2s,box-shadow .25s ease!important;box-shadow:0 1px 3px rgba(46,42,38,.04)!important;outline:none!important;display:block!important;resize:none!important}
+textarea.fb-input:hover,input.fb-input:hover{background:#f2ede8!important}
+textarea.fb-input:focus,input.fb-input:focus{background:#fff!important;box-shadow:0 0 0 2px #D9AA60,0 4px 12px rgba(217,170,96,.08)!important}
+textarea.fb-input{overflow-y:auto!important;min-height:88px!important;line-height:1.6!important}
+textarea.fb-input::placeholder,input.fb-input::placeholder{color:#cec5bc!important}
+
+/* Hide native radio/checkbox */
+.pill-group input[type="radio"],.pill-group input[type="checkbox"]{position:absolute;opacity:0;width:0;height:0}
+.pill-group label{display:inline-flex;align-items:center;gap:.4rem;padding:.45rem .85rem;border-radius:9999px;cursor:pointer;font-size:13px;color:#4c463f;background:#f8f3ee;border:1.5px solid #e6e2dd;transition:all .2s ease;user-select:none}
+.pill-group label:hover{background:#f2ede8;border-color:#cec5bc}
+.pill-group input:checked+label,.pill-group label:has(input:checked){background:#2e2a26;color:#fff;border-color:#2e2a26;box-shadow:0 2px 8px rgba(46,42,38,.15)}
+
+/* Checkbox pills (slightly different: amber accent) */
+.check-pill input[type="checkbox"]{position:absolute;opacity:0;width:0;height:0}
+.check-pill label{display:inline-flex;align-items:center;gap:.4rem;padding:.45rem .85rem;border-radius:9999px;cursor:pointer;font-size:13px;color:#4c463f;background:#f8f3ee;border:1.5px solid #e6e2dd;transition:all .2s ease;user-select:none}
+.check-pill label:hover{background:#f2ede8;border-color:#cec5bc}
+.check-pill input:checked+label,.check-pill label:has(input:checked){background:#D9AA60;color:#fff;border-color:#D9AA60;box-shadow:0 2px 8px rgba(217,170,96,.2)}
+
+/* Scale pills */
+.scale-pills{display:flex;gap:.35rem;align-items:center;flex-wrap:wrap}
+.scale-pills input[type="radio"]{position:absolute;opacity:0;width:0;height:0}
+.scale-pills label{display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;cursor:pointer;font-size:13px;font-weight:600;color:#4c463f;background:#f8f3ee;border:1.5px solid #e6e2dd;transition:all .2s ease}
+.scale-pills label:hover{background:#f2ede8;border-color:#cec5bc}
+.scale-pills input:checked+label,.scale-pills label:has(input:checked){background:#2e2a26;color:#fff;border-color:#2e2a26;box-shadow:0 2px 8px rgba(46,42,38,.15)}
+
+.required::after{content:" *";color:#D9AA60;font-weight:400}
+.progress-bar{height:3px;background:#e6e2dd;border-radius:2px;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,#2e2a26,#D9AA60);border-radius:2px;transition:width .4s ease}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="glass border-b border-sand-900/[.03] sticky top-0 z-20">
+  <div class="max-w-3xl mx-auto px-5 py-4 flex items-center justify-between">
+    <a href="index.html" class="text-[22px] font-extrabold text-sand-900 tracking-tighter font-headline cursor-pointer">NidoSync</a>
+    <div class="flex items-center gap-3">
+      <span class="text-[11px] text-amber-600 bg-amber-500/10 border border-amber-500/15 px-3 py-1 rounded-full font-bold">Feedback</span>
+      <a href="index.html" class="text-[12px] text-sand-700 hover:text-sand-900 transition-colors cursor-pointer">Volver</a>
+    </div>
+  </div>
+  <div class="progress-bar"><div id="progress" class="progress-fill" style="width:0%"></div></div>
+</header>
+
+<main class="max-w-3xl mx-auto px-5 py-8">
+
+  <!-- Intro -->
+  <div class="text-center mb-10">
+    <div class="w-14 h-14 rounded-2xl grad flex items-center justify-center mx-auto mb-4"><span class="material-symbols-outlined text-white text-2xl">rate_review</span></div>
+    <h1 class="text-2xl lg:text-3xl font-extrabold text-sand-900 font-headline">Tu opinión construye NidoSync</h1>
+    <p class="mt-2 text-sand-700 max-w-lg mx-auto">Cada respuesta nos ayuda a crear una app mejor para ti y tu familia. Este formulario es anónimo y tarda unos 5 minutos.</p>
+  </div>
+
+  <form id="feedback-form" action="https://api.web3forms.com/submit" method="POST" onsubmit="handleSubmit(event)">
+    <input type="hidden" name="access_key" value="332a056e-d1a4-4c19-9af2-13cde0dac466">
+    <input type="hidden" name="subject" value="Nuevo feedback NidoSync">
+    <input type="hidden" name="from_name" value="NidoSync Feedback">
+    <input type="hidden" name="redirect" value="">
+    <input type="checkbox" name="botcheck" style="display:none">
+
+    <!-- ═══ SECTION 1: Perfil ═══ -->
+    <div class="section-card" data-section="1">
+      <div class="flex items-center gap-2 mb-1"><span class="material-symbols-outlined text-amber-500 text-xl">person</span><h2 class="text-lg font-bold text-sand-900 font-headline">Perfil del usuario</h2></div>
+      <p class="text-sm text-sand-600 mb-5">Queremos entender mejor quién eres para contextualizar tu feedback.</p>
+
+      <div class="mb-5">
+        <p class="text-sm font-semibold text-sand-900 mb-2.5 required">¿Cuál es tu rol en la coparentalidad?</p>
+        <div class="pill-group flex flex-wrap gap-2">
+          <label><input type="radio" name="rol" value="madre" required>Madre</label>
+          <label><input type="radio" name="rol" value="padre">Padre</label>
+          <label><input type="radio" name="rol" value="tutor">Tutor/a legal</label>
+          <label><input type="radio" name="rol" value="otro">Otro</label>
+        </div>
+      </div>
+
+      <div class="mb-5">
+        <p class="text-sm font-semibold text-sand-900 mb-2.5 required">¿Cuántos hijos compartes con tu copadre/madre?</p>
+        <div class="pill-group flex flex-wrap gap-2">
+          <label><input type="radio" name="hijos" value="1" required>1</label>
+          <label><input type="radio" name="hijos" value="2">2</label>
+          <label><input type="radio" name="hijos" value="3">3</label>
+          <label><input type="radio" name="hijos" value="4+">4 o más</label>
+        </div>
+      </div>
+
+      <div class="mb-5">
+        <p class="text-sm font-semibold text-sand-900 mb-2.5 required">¿Cuánto tiempo llevas usando NidoSync?</p>
+        <div class="pill-group flex flex-wrap gap-2">
+          <label><input type="radio" name="tiempo" value="<1sem" required>&lt; 1 semana</label>
+          <label><input type="radio" name="tiempo" value="1-4sem">1-4 semanas</label>
+          <label><input type="radio" name="tiempo" value="1-3mes">1-3 meses</label>
+          <label><input type="radio" name="tiempo" value=">3mes">&gt; 3 meses</label>
+        </div>
+      </div>
+
+      <div class="mb-5">
+        <p class="text-sm font-semibold text-sand-900 mb-2.5 required">¿Con qué frecuencia usas NidoSync?</p>
+        <div class="pill-group flex flex-wrap gap-2">
+          <label><input type="radio" name="frecuencia" value="varias_dia" required>Varias/día</label>
+          <label><input type="radio" name="frecuencia" value="una_dia">Una vez/día</label>
+          <label><input type="radio" name="frecuencia" value="algunas_sem">Algunas/semana</label>
+          <label><input type="radio" name="frecuencia" value="una_sem">1 vez/semana o menos</label>
+        </div>
+      </div>
+
+      <div>
+        <p class="text-sm font-semibold text-sand-900 mb-2.5 required">¿Cuál es tu rango de edad?</p>
+        <div class="pill-group flex flex-wrap gap-2">
+          <label><input type="radio" name="edad" value="18-25" required>18-25</label>
+          <label><input type="radio" name="edad" value="26-35">26-35</label>
+          <label><input type="radio" name="edad" value="36-45">36-45</label>
+          <label><input type="radio" name="edad" value="46+">46+</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ SECTION 2: Experiencia general ═══ -->
+    <div class="section-card" data-section="2">
+      <div class="flex items-center gap-2 mb-1"><span class="material-symbols-outlined text-amber-500 text-xl">star</span><h2 class="text-lg font-bold text-sand-900 font-headline">Experiencia general</h2></div>
+      <p class="text-sm text-sand-600 mb-5">Evaluación general de la app.</p>
+
+      <div class="mb-5">
+        <p class="text-sm font-semibold text-sand-900 mb-1 required">¿Cómo calificarías tu experiencia general con NidoSync?</p>
+        <div class="flex justify-between text-[10px] text-sand-600 mb-2"><span>Muy mala</span><span>Excelente</span></div>
+        <div class="scale-pills justify-between">
+          <label><input type="radio" name="experiencia" value="1" required>1</label>
+          <label><input type="radio" name="experiencia" value="2">2</label>
+          <label><input type="radio" name="experiencia" value="3">3</label>
+          <label><input type="radio" name="experiencia" value="4">4</label>
+          <label><input type="radio" name="experiencia" value="5">5</label>
+        </div>
+      </div>
+
+      <div class="mb-5">
+        <p class="text-sm font-semibold text-sand-900 mb-1 required">¿Recomendarías NidoSync a otros padres separados? (NPS)</p>
+        <div class="flex justify-between text-[10px] text-sand-600 mb-2"><span>Definitivamente no</span><span>Definitivamente sí</span></div>
+        <div class="scale-pills justify-between">
+          <label><input type="radio" name="nps" value="0" required>0</label>
+          <label><input type="radio" name="nps" value="1">1</label>
+          <label><input type="radio" name="nps" value="2">2</label>
+          <label><input type="radio" name="nps" value="3">3</label>
+          <label><input type="radio" name="nps" value="4">4</label>
+          <label><input type="radio" name="nps" value="5">5</label>
+          <label><input type="radio" name="nps" value="6">6</label>
+          <label><input type="radio" name="nps" value="7">7</label>
+          <label><input type="radio" name="nps" value="8">8</label>
+          <label><input type="radio" name="nps" value="9">9</label>
+          <label><input type="radio" name="nps" value="10">10</label>
+        </div>
+      </div>
+
+      <div class="mb-5">
+        <p class="text-sm font-semibold text-sand-900 mb-2 required">¿Qué es lo que MÁS te gusta de NidoSync?</p>
+        <textarea class="fb-input" name="mas_gusta" required placeholder="Escribe aquí lo que más valoras de la app..."></textarea>
+      </div>
+
+      <div>
+        <p class="text-sm font-semibold text-sand-900 mb-2 required">¿Qué es lo que MENOS te gusta o te frustra?</p>
+        <textarea class="fb-input" name="menos_gusta" required placeholder="Cuéntanos qué mejorarías o qué te frustra..."></textarea>
+      </div>
+    </div>
+
+    <!-- ═══ SECTION 3: Funcionalidades ═══ -->
+    <div class="section-card" data-section="3">
+      <div class="flex items-center gap-2 mb-1"><span class="material-symbols-outlined text-amber-500 text-xl">widgets</span><h2 class="text-lg font-bold text-sand-900 font-headline">Funcionalidades</h2></div>
+      <p class="text-sm text-sand-600 mb-5">Evalúa las funcionalidades principales de la app.</p>
+
+      <div class="mb-5">
+        <p class="text-sm font-semibold text-sand-900 mb-2 required">¿Qué funcionalidades has usado? (selecciona todas las que apliquen)</p>
+        <div class="check-pill flex flex-wrap gap-2">
+          <label><input type="checkbox" name="usadas" value="mensajeria"> Mensajería con mediación IA</label>
+          <label><input type="checkbox" name="usadas" value="gastos"> Gastos compartidos (con escaneo OCR de recibos)</label>
+          <label><input type="checkbox" name="usadas" value="calendario"> Calendario compartido y custodia</label>
+          <label><input type="checkbox" name="usadas" value="legal"> Documentos legales (análisis con IA)</label>
+          <label><input type="checkbox" name="usadas" value="bienestar"> Bienestar infantil (monitoreo con IA)</label>
+          <label><input type="checkbox" name="usadas" value="cumplimiento"> Seguimiento de cumplimiento de acuerdos</label>
+          <label><input type="checkbox" name="usadas" value="alertas"> Sistema de alertas y notificaciones</label>
+        </div>
+      </div>
+
+      <div class="mb-5">
+        <p class="text-sm font-semibold text-sand-900 mb-2 required">¿Cuál funcionalidad consideras MÁS valiosa?</p>
+        <div class="pill-group flex flex-wrap gap-2">
+          <label><input type="radio" name="mas_valiosa" value="mensajeria" required> Mensajería con mediación IA</label>
+          <label><input type="radio" name="mas_valiosa" value="gastos"> Gastos compartidos (con escaneo OCR)</label>
+          <label><input type="radio" name="mas_valiosa" value="calendario"> Calendario compartido y custodia</label>
+          <label><input type="radio" name="mas_valiosa" value="legal"> Documentos legales (análisis con IA)</label>
+          <label><input type="radio" name="mas_valiosa" value="bienestar"> Bienestar infantil (monitoreo con IA)</label>
+          <label><input type="radio" name="mas_valiosa" value="cumplimiento"> Seguimiento de cumplimiento de acuerdos</label>
+          <label><input type="radio" name="mas_valiosa" value="alertas"> Sistema de alertas y notificaciones</label>
+        </div>
+      </div>
+
+      <div class="mb-5">
+        <p class="text-sm font-semibold text-sand-900 mb-2">¿Hay alguna funcionalidad que esperabas encontrar y NO está?</p>
+        <textarea class="fb-input" name="falta_func" placeholder="Describe qué funcionalidad echas en falta..."></textarea>
+      </div>
+
+      <div>
+        <p class="text-sm font-semibold text-sand-900 mb-1">¿Cómo de fácil te resulta navegar por la app?</p>
+        <div class="flex justify-between text-[10px] text-sand-600 mb-2"><span>Muy difícil</span><span>Muy fácil</span></div>
+        <div class="scale-pills justify-between">
+          <label><input type="radio" name="facilidad" value="1">1</label>
+          <label><input type="radio" name="facilidad" value="2">2</label>
+          <label><input type="radio" name="facilidad" value="3">3</label>
+          <label><input type="radio" name="facilidad" value="4">4</label>
+          <label><input type="radio" name="facilidad" value="5">5</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ SECTION 4: Inteligencia Artificial ═══ -->
+    <div class="section-card" data-section="4">
+      <div class="flex items-center gap-2 mb-1"><span class="material-symbols-outlined text-amber-500 text-xl">psychology</span><h2 class="text-lg font-bold text-sand-900 font-headline">Inteligencia Artificial</h2></div>
+      <p class="text-sm text-sand-600 mb-5">NidoSync usa IA para mediar conversaciones y ayudar en la comunicación.</p>
+
+      <div class="mb-5">
+        <p class="text-sm font-semibold text-sand-900 mb-2 required">¿Has notado la mediación de IA en los mensajes?</p>
+        <div class="pill-group flex flex-wrap gap-2">
+          <label><input type="radio" name="mediacion_notada" value="util" required> Sí, y me parece útil</label>
+          <label><input type="radio" name="mediacion_notada" value="no_convence"> Sí, pero no me convence</label>
+          <label><input type="radio" name="mediacion_notada" value="no_notada"> No la he notado</label>
+          <label><input type="radio" name="mediacion_notada" value="no_uso"> No uso la mensajería</label>
+        </div>
+      </div>
+
+      <div class="mb-5">
+        <p class="text-sm font-semibold text-sand-900 mb-2">¿La IA ha ayudado a reducir conflictos en la comunicación con tu copadre/madre?</p>
+        <div class="flex justify-between text-[10px] text-sand-600 mb-2"><span>Nada</span><span>Muchísimo</span></div>
+        <div class="scale-pills justify-between"><label><input type="radio" name="ia_conflictos" value="1">1</label>
+          <label><input type="radio" name="ia_conflictos" value="2">2</label>
+          <label><input type="radio" name="ia_conflictos" value="3">3</label>
+          <label><input type="radio" name="ia_conflictos" value="4">4</label>
+          <label><input type="radio" name="ia_conflictos" value="5">5</label></div>
+      </div>
+
+      <div class="mb-5">
+        <p class="text-sm font-semibold text-sand-900 mb-2">¿Qué opinas sobre que una IA modere las conversaciones entre copadres?</p>
+        <textarea class="fb-input" name="opinion_ia" placeholder="Tu opinión sincera sobre la mediación con IA..."></textarea>
+      </div>
+
+      <div>
+        <p class="text-sm font-semibold text-sand-900 mb-2">¿Confías en las respuestas del asistente legal con IA?</p>
+        <div class="flex justify-between text-[10px] text-sand-600 mb-2"><span>Nada</span><span>Totalmente</span></div>
+        <div class="scale-pills justify-between"><label><input type="radio" name="confianza_legal" value="1">1</label>
+          <label><input type="radio" name="confianza_legal" value="2">2</label>
+          <label><input type="radio" name="confianza_legal" value="3">3</label>
+          <label><input type="radio" name="confianza_legal" value="4">4</label>
+          <label><input type="radio" name="confianza_legal" value="5">5</label></div>
+      </div>
+    </div>
+
+    <!-- ═══ SECTION 5: Valor y disposición a pagar ═══ -->
+    <div class="section-card" data-section="5">
+      <div class="flex items-center gap-2 mb-1"><span class="material-symbols-outlined text-amber-500 text-xl">payments</span><h2 class="text-lg font-bold text-sand-900 font-headline">Valor y disposición a pagar</h2></div>
+      <p class="text-sm text-sand-600 mb-5">Nos ayuda a entender el valor percibido de la app.</p>
+
+      <div class="mb-5">
+        <p class="text-sm font-semibold text-sand-900 mb-2 required">¿Cuánto estarías dispuesto/a a pagar mensualmente por NidoSync?</p>
+        <div class="pill-group flex flex-wrap gap-2">
+          <label><input type="radio" name="precio" value="gratis" required> No pagaría, solo usaría la versión gratuita</label>
+          <label><input type="radio" name="precio" value="1-5"> 1-5 USD/mes</label>
+          <label><input type="radio" name="precio" value="5-10"> 5-10 USD/mes</label>
+          <label><input type="radio" name="precio" value="10-20"> 10-20 USD/mes</label>
+          <label><input type="radio" name="precio" value=">20"> Más de 20 USD/mes</label>
+        </div>
+      </div>
+
+      <div class="mb-5">
+        <p class="text-sm font-semibold text-sand-900 mb-2">¿Qué funcionalidad te haría pagar por la versión premium sin dudarlo?</p>
+        <textarea class="fb-input" name="premium_func" placeholder="¿Qué funcionalidad justificaría pagar?"></textarea>
+      </div>
+
+      <div>
+        <p class="text-sm font-semibold text-sand-900 mb-2 required">Antes de NidoSync, ¿cómo coordinabas la coparentalidad?</p>
+        <div class="check-pill flex flex-wrap gap-2">
+          <label><input type="checkbox" name="antes" value="whatsapp"> WhatsApp/mensajería normal</label>
+          <label><input type="checkbox" name="antes" value="llamadas"> Llamadas telefónicas</label>
+          <label><input type="checkbox" name="antes" value="email"> Email</label>
+          <label><input type="checkbox" name="antes" value="otra_app"> Otra app de coparentalidad (OurFamilyWizard, Cozi, etc.)</label>
+          <label><input type="checkbox" name="antes" value="cuaderno"> Cuaderno/agenda física</label>
+          <label><input type="checkbox" name="antes" value="abogados"> A través de abogados</label>
+          <label><input type="checkbox" name="antes" value="nada"> No había buena coordinación</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ SECTION 6: Impacto emocional ═══ -->
+    <div class="section-card" data-section="6">
+      <div class="flex items-center gap-2 mb-1"><span class="material-symbols-outlined text-amber-500 text-xl">favorite</span><h2 class="text-lg font-bold text-sand-900 font-headline">Impacto emocional</h2></div>
+      <p class="text-sm text-sand-600 mb-5">Queremos entender cómo NidoSync afecta tu bienestar y el de tu familia.</p>
+
+      <div class="mb-5">
+        <p class="text-sm font-semibold text-sand-900 mb-2">¿Ha cambiado tu nivel de estrés relacionado con la coparentalidad desde que usas NidoSync?</p>
+        <div class="flex justify-between text-[10px] text-sand-600 mb-2"><span>Mucho más estrés</span><span>Mucho menos estrés</span></div>
+        <div class="scale-pills justify-between"><label><input type="radio" name="estres" value="1">1</label>
+          <label><input type="radio" name="estres" value="2">2</label>
+          <label><input type="radio" name="estres" value="3">3</label>
+          <label><input type="radio" name="estres" value="4">4</label>
+          <label><input type="radio" name="estres" value="5">5</label></div>
+      </div>
+
+      <div class="mb-5">
+        <p class="text-sm font-semibold text-sand-900 mb-2">¿Sientes que tus hijos se benefician de que uses NidoSync?</p>
+        <div class="pill-group flex flex-wrap gap-2">
+          <label><input type="radio" name="hijos_beneficio" value="si_mucho"> Sí, mucho — noto menos tensión en ellos</label>
+          <label><input type="radio" name="hijos_beneficio" value="si_algo"> Sí, algo — la comunicación ha mejorado</label>
+          <label><input type="radio" name="hijos_beneficio" value="no_seguro"> No estoy seguro/a</label>
+          <label><input type="radio" name="hijos_beneficio" value="no"> No, no noto diferencia</label>
+        </div>
+      </div>
+
+      <div>
+        <p class="text-sm font-semibold text-sand-900 mb-2">¿Ha mejorado la relación con tu copadre/madre desde que usáis NidoSync?</p>
+        <div class="pill-group flex flex-wrap gap-2">
+          <label><input type="radio" name="relacion_copadre" value="mucho_mejor"> Sí, mucho mejor</label>
+          <label><input type="radio" name="relacion_copadre" value="algo_mejor"> Algo mejor</label>
+          <label><input type="radio" name="relacion_copadre" value="igual"> Igual que antes</label>
+          <label><input type="radio" name="relacion_copadre" value="peor"> Ha empeorado</label>
+          <label><input type="radio" name="relacion_copadre" value="no_usa"> El otro progenitor no usa la app</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ SECTION 7: Bugs y rendimiento ═══ -->
+    <div class="section-card" data-section="7">
+      <div class="flex items-center gap-2 mb-1"><span class="material-symbols-outlined text-amber-500 text-xl">bug_report</span><h2 class="text-lg font-bold text-sand-900 font-headline">Rendimiento y errores</h2></div>
+      <p class="text-sm text-sand-600 mb-5">Nos ayuda a detectar problemas técnicos.</p>
+
+      <div class="mb-5">
+        <p class="text-sm font-semibold text-sand-900 mb-2">¿Has experimentado algún error o problema técnico?</p>
+        <div class="pill-group flex flex-wrap gap-2">
+          <label><input type="radio" name="errores" value="nunca"> Nunca</label>
+          <label><input type="radio" name="errores" value="rara_vez"> Rara vez</label>
+          <label><input type="radio" name="errores" value="a_veces"> A veces</label>
+          <label><input type="radio" name="errores" value="frecuente"> Frecuentemente</label>
+        </div>
+      </div>
+
+      <div class="mb-5">
+        <p class="text-sm font-semibold text-sand-900 mb-2">¿Cómo calificarías la velocidad de la app?</p>
+        <div class="flex justify-between text-[10px] text-sand-600 mb-2"><span>Muy lenta</span><span>Muy rápida</span></div>
+        <div class="scale-pills justify-between"><label><input type="radio" name="velocidad" value="1">1</label>
+          <label><input type="radio" name="velocidad" value="2">2</label>
+          <label><input type="radio" name="velocidad" value="3">3</label>
+          <label><input type="radio" name="velocidad" value="4">4</label>
+          <label><input type="radio" name="velocidad" value="5">5</label></div>
+      </div>
+
+      <div>
+        <p class="text-sm font-semibold text-sand-900 mb-2">Si tuviste algún error, descríbelo brevemente:</p>
+        <textarea class="fb-input" name="desc_error" placeholder="¿Qué pasó? ¿En qué pantalla?"></textarea>
+      </div>
+    </div>
+
+    <!-- ═══ SECTION 8: Feedback final ═══ -->
+    <div class="section-card" data-section="8">
+      <div class="flex items-center gap-2 mb-1"><span class="material-symbols-outlined text-amber-500 text-xl">chat</span><h2 class="text-lg font-bold text-sand-900 font-headline">Feedback final</h2></div>
+      <p class="text-sm text-sand-600 mb-5">Últimos comentarios.</p>
+
+      <div class="mb-5">
+        <p class="text-sm font-semibold text-sand-900 mb-2 required">Si pudieras cambiar UNA SOLA COSA de NidoSync, ¿cuál sería?</p>
+        <textarea class="fb-input" name="una_cosa" required placeholder="La cosa más importante que cambiarías..."></textarea>
+      </div>
+
+      <div class="mb-5">
+        <p class="text-sm font-semibold text-sand-900 mb-2">¿Qué funcionalidad te gustaría ver en el futuro?</p>
+        <textarea class="fb-input" name="futuro" placeholder="Ideas, sugerencias, sueños..."></textarea>
+      </div>
+
+      <div class="mb-5">
+        <p class="text-sm font-semibold text-sand-900 mb-2">¿Algún comentario adicional que quieras compartir?</p>
+        <textarea class="fb-input" name="adicional" placeholder="Cualquier cosa que no hayamos preguntado..."></textarea>
+      </div>
+
+    </div>
+
+    <!-- Submit -->
+    <div class="text-center mt-8 mb-12">
+      <button type="submit" class="grad px-10 py-4 rounded-xl font-headline text-lg font-bold transition-all duration-300 hover:opacity-90 active:scale-[.97] cursor-pointer">Enviar feedback</button>
+      <p class="mt-3 text-xs text-sand-600">Tus respuestas son anónimas y nos ayudan a mejorar NidoSync.</p>
+    </div>
+
+  </form>
+
+  <!-- Success message (hidden by default) -->
+  <div id="success" class="hidden text-center py-20">
+    <div class="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-4"><span class="material-symbols-outlined text-green-600 text-3xl">check_circle</span></div>
+    <h2 class="text-2xl font-extrabold text-sand-900 font-headline">¡Gracias por tu feedback!</h2>
+    <p class="mt-2 text-sand-700 max-w-md mx-auto">Tu opinión es fundamental para construir la mejor app de coparentalidad. Cada respuesta nos acerca a una versión mejor de NidoSync.</p>
+    <a href="index.html" class="inline-block mt-6 grad px-8 py-3 rounded-xl font-headline text-sm font-bold transition-all cursor-pointer">Volver a NidoSync</a>
+  </div>
+
+</main>
+
+<!-- Footer -->
+<footer class="py-6 border-t border-sand-900/[.04]">
+  <div class="max-w-3xl mx-auto px-5 flex justify-between items-center">
+    <span class="text-xs text-sand-600">&copy; 2026 NidoSync</span>
+    <a href="index.html" class="text-xs text-sand-700 hover:text-sand-900 transition-colors cursor-pointer">Volver a la web</a>
+  </div>
+</footer>
+
+<script>
+// Progress bar based on scroll
+window.addEventListener('scroll', () => {
+  const h = document.documentElement.scrollHeight - window.innerHeight;
+  const p = Math.min((window.scrollY / h) * 100, 100);
+  document.getElementById('progress').style.width = p + '%';
+});
+
+// Handle form submit via Web3Forms
+async function handleSubmit(e) {
+  e.preventDefault();
+  const form = document.getElementById('feedback-form');
+  const btn = form.querySelector('button[type="submit"]');
+  const originalText = btn.textContent;
+  btn.textContent = 'Enviando...';
+  btn.disabled = true;
+
+  try {
+    const data = new FormData(form);
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body: data
+    });
+    const json = await res.json();
+    if (json.success) {
+      form.classList.add('hidden');
+      document.getElementById('success').classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      alert('Error al enviar. Inténtalo de nuevo.');
+      btn.textContent = originalText;
+      btn.disabled = false;
+    }
+  } catch (err) {
+    alert('Error de conexión. Inténtalo de nuevo.');
+    btn.textContent = originalText;
+    btn.disabled = false;
+  }
+}
+</script>
+
+</body>
+</html>
