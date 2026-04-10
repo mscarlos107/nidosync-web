@@ -32,7 +32,7 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:#fef8f3;color:#1d1b19
 </header>
 <main class="max-w-3xl mx-auto px-5 py-10">
   <h1 class="text-2xl lg:text-3xl font-extrabold text-sand-900 font-headline mb-1">Politica de Privacidad</h1>
-  <p class="text-xs text-sand-600 mb-8">Ultima actualizacion: 22 de marzo de 2026</p>
+  <p class="text-xs text-sand-600 mb-8">Ultima actualizacion: 10 de abril de 2026</p>
   <div class="bg-white rounded-2xl p-6 lg:p-8 border border-sand-900/[.04] shadow-sm legal">
     <h3>1. RESPONSABLE DEL TRATAMIENTO</h3>
     <p>NidoSync (en adelante, "la Aplicación") es una plataforma de coparentalidad que facilita la comunicación y gestión compartida entre progenitores. El responsable del tratamiento de datos personales es NidoSync, con contacto en legal@nidosync.com.</p>
@@ -48,8 +48,9 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:#fef8f3;color:#1d1b19
     <h3>3. BASE LEGAL DEL TRATAMIENTO</h3>
     <p>El tratamiento de tus datos se fundamenta en:</p>
     <p style="padding-left:1.25rem"><span style="color:#D9AA60;margin-right:.5rem">•</span>Ejecución del contrato de servicio (art. 6.1.b RGPD).</p>
-    <p style="padding-left:1.25rem"><span style="color:#D9AA60;margin-right:.5rem">•</span>Consentimiento explícito para el análisis de documentos y mediación de mensajes (art. 6.1.a RGPD).</p>
+    <p style="padding-left:1.25rem"><span style="color:#D9AA60;margin-right:.5rem">•</span>Consentimiento explícito para el análisis de documentos y mediación de mensajes mediante inteligencia artificial de terceros (art. 6.1.a RGPD).</p>
     <p style="padding-left:1.25rem"><span style="color:#D9AA60;margin-right:.5rem">•</span>Interés legítimo para la mejora del servicio y prevención de abusos (art. 6.1.f RGPD).</p>
+    <p>El consentimiento para el uso de inteligencia artificial se solicita de forma explícita antes de la primera operación con IA y puedes revocarlo en cualquier momento desde la app en <em>Ajustes → IA y Privacidad</em>. Tras revocarlo, las funciones de IA dejan de estar disponibles y no se envía ningún dato adicional al procesador de IA.</p>
     <h3>4. FINALIDAD DEL TRATAMIENTO</h3>
     <p>Utilizamos tus datos exclusivamente para:</p>
     <p style="padding-left:1.25rem"><span style="color:#D9AA60;margin-right:.5rem">•</span>Proporcionar las funcionalidades de la aplicación (mensajería, gastos, calendario, documentos legales).</p>
@@ -65,9 +66,21 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:#fef8f3;color:#1d1b19
     <p>Conservamos tus datos mientras mantengas una cuenta activa. Al eliminar tu cuenta, todos tus datos personales serán eliminados en un plazo máximo de 30 días, salvo obligación legal de conservación.</p>
     <h3>7. SERVICIOS DE TERCEROS</h3>
     <p>La aplicación utiliza los siguientes servicios de terceros:</p>
-    <p style="padding-left:1.25rem"><span style="color:#D9AA60;margin-right:.5rem">•</span>Supabase: infraestructura de backend y almacenamiento (política de privacidad en supabase.com/privacy).</p>
+    <p style="padding-left:1.25rem"><span style="color:#D9AA60;margin-right:.5rem">•</span>Supabase (Suecia, UE): infraestructura de backend, base de datos y almacenamiento de archivos (política de privacidad en supabase.com/privacy).</p>
+    <p style="padding-left:1.25rem"><span style="color:#D9AA60;margin-right:.5rem">•</span>Firebase Cloud Messaging (Google LLC, EE.UU.): envío de notificaciones push.</p>
     <p style="padding-left:1.25rem"><span style="color:#D9AA60;margin-right:.5rem">•</span>Google Fonts: tipografías (no transmite datos personales).</p>
-    <p style="padding-left:1.25rem"><span style="color:#D9AA60;margin-right:.5rem">•</span>Servicios de IA: para mediación de mensajes y análisis de documentos. Los datos enviados a estos servicios se limitan al contenido estrictamente necesario y no se utilizan para entrenar modelos.</p>
+    <h3>7 bis. INTELIGENCIA ARTIFICIAL DE TERCEROS (OpenRouter)</h3>
+    <p>NidoSync envía determinados contenidos a <strong>OpenRouter, Inc.</strong> (<a href="https://openrouter.ai" class="text-amber-600 hover:underline">openrouter.ai</a>), una empresa con sede en Estados Unidos que actúa como pasarela hacia modelos de inteligencia artificial de Anthropic (EE.UU.), Google (EE.UU.), Alibaba (China) y DeepSeek (China). OpenRouter es el único procesador de IA contratado por NidoSync y es con quien tenemos un contrato de encargo de tratamiento.</p>
+    <p><strong>Datos que se envían a OpenRouter:</strong></p>
+    <p style="padding-left:1.25rem"><span style="color:#D9AA60;margin-right:.5rem">•</span>Texto de los mensajes cuando usas la función de mediación automática.</p>
+    <p style="padding-left:1.25rem"><span style="color:#D9AA60;margin-right:.5rem">•</span>Contenido de los documentos legales que subas para análisis o consultas.</p>
+    <p style="padding-left:1.25rem"><span style="color:#D9AA60;margin-right:.5rem">•</span>Imágenes de los recibos cuando usas el OCR de gastos.</p>
+    <p style="padding-left:1.25rem"><span style="color:#D9AA60;margin-right:.5rem">•</span>Notas sobre bienestar infantil cuando solicitas un análisis.</p>
+    <p style="padding-left:1.25rem"><span style="color:#D9AA60;margin-right:.5rem">•</span>Datos de cumplimiento de custodia cuando generas un reporte.</p>
+    <p><strong>Lo que NO se envía:</strong> identificadores personales directos como tu nombre, email, número de teléfono o contraseñas.</p>
+    <p><strong>Finalidades:</strong> mediación de comunicaciones, análisis de documentos legales, OCR de recibos, análisis de bienestar infantil, detección de conflictos en el calendario y generación de reportes de cumplimiento.</p>
+    <p><strong>Transferencias internacionales:</strong> las llamadas se procesan en servidores de OpenRouter en EE.UU. y, según el modelo seleccionado, los contenidos pueden procesarse temporalmente en servidores de los proveedores subyacentes (EE.UU. o China). Las llamadas se realizan sobre la API comercial de pago de OpenRouter, que contractualmente no utiliza los datos para entrenar modelos ni los retiene más allá del tiempo necesario para responder a la petición.</p>
+    <p><strong>Base legal:</strong> consentimiento explícito del usuario (art. 6.1.a RGPD). Se solicita mediante un diálogo claro la primera vez que intentas usar una función con IA y puedes revocarlo en cualquier momento desde <em>Ajustes → IA y Privacidad</em>. Tras revocar el consentimiento las funciones de IA dejan de estar disponibles y no se envía ningún dato adicional a OpenRouter.</p>
     <h3>8. MENORES</h3>
     <p>NidoSync gestiona información relativa a menores introducida por sus progenitores. No recopilamos datos directamente de menores. Los progenitores son responsables de la información que introducen sobre sus hijos.</p>
     <h3>9. CONTACTO</h3>
