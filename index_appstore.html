@@ -72,6 +72,21 @@ html{scroll-behavior:smooth}
 .med-card{border-left:4px solid;transition:transform .3s,box-shadow .3s}
 .med-card:hover{transform:translateX(4px);box-shadow:0 8px 24px rgba(0,0,0,.06)}
 
+/* App Store badge */
+.appstore-badge{display:inline-flex;align-items:center;gap:10px;background:#000;color:#fff;padding:10px 20px;border-radius:12px;text-decoration:none;transition:all .3s;border:1px solid rgba(255,255,255,.1)}
+.appstore-badge:hover{opacity:.88;transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.2)}
+.appstore-badge .badge-icon{font-size:28px;line-height:1}
+.appstore-badge .badge-text{display:flex;flex-direction:column;line-height:1}
+.appstore-badge .badge-text-top{font-size:10px;font-weight:400;letter-spacing:.02em}
+.appstore-badge .badge-text-bottom{font-size:18px;font-weight:600;letter-spacing:-.01em;margin-top:2px}
+
+/* Android signup */
+.android-signup input[type="email"]{background:#fff;border:1.5px solid #ece7e2;border-radius:10px;padding:12px 16px;font-size:15px;font-family:'Plus Jakarta Sans',sans-serif;color:#2e2a26;outline:none;transition:border-color .2s}
+.android-signup input[type="email"]:focus{border-color:#D9AA60}
+.android-signup input[type="email"]::placeholder{color:#cec5bc}
+.android-signup button[type="submit"]{background:linear-gradient(135deg,#2e2a26,#44403c);color:#fff;border:none;border-radius:10px;padding:12px 24px;font-size:15px;font-weight:700;font-family:'Manrope',sans-serif;cursor:pointer;transition:all .3s}
+.android-signup button[type="submit"]:hover{opacity:.9;transform:translateY(-1px);box-shadow:0 8px 20px rgba(46,42,38,.2)}
+
 @media(prefers-reduced-motion:reduce){
 .r,.rl,.rr,.rs,.tc{opacity:1;transform:none;clip-path:none;transition:none}
 .mq{animation:none}.fa,.fb,.fc{animation:none}.fan{transition:none}
@@ -86,9 +101,8 @@ html{scroll-behavior:smooth}
   <a href="#" class="text-[22px] font-extrabold text-sand-900 tracking-tighter font-headline cursor-pointer">NidoSync</a>
   <div class="hidden md:flex items-center gap-9">
     <a href="#features" class="text-[13px] font-medium text-sand-700 hover:text-sand-900 transition-colors cursor-pointer">Funcionalidades</a>
-    <a href="#mediacion" class="text-[13px] font-medium text-sand-700 hover:text-sand-900 transition-colors cursor-pointer">Cómo funciona</a>
+    <a href="#mediacion" class="text-[13px] font-medium text-sand-700 hover:text-sand-900 transition-colors cursor-pointer">Como funciona</a>
     <a href="#seguridad" class="text-[13px] font-medium text-sand-700 hover:text-sand-900 transition-colors cursor-pointer">Seguridad</a>
-    <a href="profesionales.html" class="text-[13px] font-medium text-sand-700 hover:text-sand-900 transition-colors cursor-pointer">Profesionales</a>
     <a href="#faq" class="text-[13px] font-medium text-sand-700 hover:text-sand-900 transition-colors cursor-pointer">FAQ</a>
   </div>
   <a href="APPSTORE_URL_PLACEHOLDER" target="_blank" class="hidden md:flex items-center gap-2 grad px-5 py-2 rounded-full text-[13px] font-bold transition-all duration-300 cursor-pointer no-underline text-white"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>Descargar gratis</a>
@@ -97,9 +111,8 @@ html{scroll-behavior:smooth}
 <div id="mm" class="mob absolute top-16 inset-x-0 bg-sand-50 border-b border-sand-600/10 shadow-xl">
   <div class="px-6 py-5 flex flex-col gap-3">
     <a href="#features" class="text-base font-medium text-sand-900 py-2 cursor-pointer mm-link">Funcionalidades</a>
-    <a href="#mediacion" class="text-base font-medium text-sand-900 py-2 cursor-pointer mm-link">Cómo funciona</a>
+    <a href="#mediacion" class="text-base font-medium text-sand-900 py-2 cursor-pointer mm-link">Como funciona</a>
     <a href="#seguridad" class="text-base font-medium text-sand-900 py-2 cursor-pointer mm-link">Seguridad</a>
-    <a href="profesionales.html" class="text-base font-medium text-sand-900 py-2 cursor-pointer mm-link">Profesionales</a>
     <a href="#faq" class="text-base font-medium text-sand-900 py-2 cursor-pointer mm-link">FAQ</a>
     <a href="APPSTORE_URL_PLACEHOLDER" target="_blank" class="grad w-full py-3 rounded-xl text-sm font-bold mt-1 cursor-pointer flex items-center justify-center gap-2 no-underline text-white"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>Descargar gratis</a>
   </div>
@@ -124,7 +137,10 @@ html{scroll-behavior:smooth}
     </div>
     <p class="r d2 text-[15px] lg:text-[17px] text-sand-700 leading-[1.7] max-w-[500px]">La IA analiza tus mensajes antes de enviarlos, organiza la custodia, divide gastos con transparencia y convierte tus documentos legales en respuestas claras.</p>
     <div class="r d3 flex flex-col sm:flex-row gap-3">
-      <a href="APPSTORE_URL_PLACEHOLDER" target="_blank" class="grad px-7 py-3.5 rounded-xl font-headline text-[15px] font-bold transition-all duration-300 active:scale-[.97] cursor-pointer flex items-center gap-2 no-underline text-white"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>Descargar gratis</a>
+      <a href="APPSTORE_URL_PLACEHOLDER" target="_blank" class="appstore-badge">
+        <svg class="badge-icon" width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        <span class="badge-text"><span class="badge-text-top">Disponible en el</span><span class="badge-text-bottom">App Store</span></span>
+      </a>
       <a href="#mediacion" class="text-center border border-sand-600/10 bg-white px-7 py-3.5 rounded-xl font-headline text-[15px] font-semibold text-sand-900 hover:bg-sand-100 transition-all active:scale-[.97] cursor-pointer">Ver como funciona</a>
     </div>
     <div class="r d4 pt-4 flex flex-wrap gap-5">
@@ -162,14 +178,14 @@ html{scroll-behavior:smooth}
 <!-- ═══ MARQUEE ═══ -->
 <div class="py-5 border-y border-sand-900/[.04] bg-sand-100/40 overflow-hidden">
 <div class="mq flex items-center gap-10 whitespace-nowrap" style="width:max-content">
-  <span class="text-[13px] font-bold text-sand-600/30 uppercase tracking-[.15em]">Mensajería mediada</span><span class="text-amber-500/25 text-xs">&#9679;</span>
+  <span class="text-[13px] font-bold text-sand-600/30 uppercase tracking-[.15em]">Mensajeria mediada</span><span class="text-amber-500/25 text-xs">&#9679;</span>
   <span class="text-[13px] font-bold text-sand-600/30 uppercase tracking-[.15em]">Gastos compartidos</span><span class="text-amber-500/25 text-xs">&#9679;</span>
   <span class="text-[13px] font-bold text-sand-600/30 uppercase tracking-[.15em]">Calendario custodia</span><span class="text-amber-500/25 text-xs">&#9679;</span>
   <span class="text-[13px] font-bold text-sand-600/30 uppercase tracking-[.15em]">Asistente legal IA</span><span class="text-amber-500/25 text-xs">&#9679;</span>
   <span class="text-[13px] font-bold text-sand-600/30 uppercase tracking-[.15em]">Cifrado E2E</span><span class="text-amber-500/25 text-xs">&#9679;</span>
   <span class="text-[13px] font-bold text-sand-600/30 uppercase tracking-[.15em]">RGPD</span><span class="text-amber-500/25 text-xs">&#9679;</span>
   <span class="text-[13px] font-bold text-sand-600/30 uppercase tracking-[.15em]">Sin publicidad</span><span class="text-amber-500/25 text-xs">&#9679;</span>
-  <span class="text-[13px] font-bold text-sand-600/30 uppercase tracking-[.15em]">Mensajería mediada</span><span class="text-amber-500/25 text-xs">&#9679;</span>
+  <span class="text-[13px] font-bold text-sand-600/30 uppercase tracking-[.15em]">Mensajeria mediada</span><span class="text-amber-500/25 text-xs">&#9679;</span>
   <span class="text-[13px] font-bold text-sand-600/30 uppercase tracking-[.15em]">Gastos compartidos</span><span class="text-amber-500/25 text-xs">&#9679;</span>
   <span class="text-[13px] font-bold text-sand-600/30 uppercase tracking-[.15em]">Calendario custodia</span><span class="text-amber-500/25 text-xs">&#9679;</span>
   <span class="text-[13px] font-bold text-sand-600/30 uppercase tracking-[.15em]">Asistente legal IA</span><span class="text-amber-500/25 text-xs">&#9679;</span>
@@ -182,7 +198,7 @@ html{scroll-behavior:smooth}
 <!-- ═══ STATS ═══ -->
 <section class="py-14 lg:py-18">
 <div class="max-w-[1440px] mx-auto px-5 sm:px-6 grid grid-cols-2 lg:grid-cols-4 gap-6">
-  <div class="r text-center"><div class="text-4xl lg:text-5xl font-extrabold text-sand-900 font-headline"><span data-target="3" class="ctr">0</span></div><p class="mt-1.5 text-sm text-sand-700">Capas de protección IA</p></div>
+  <div class="r text-center"><div class="text-4xl lg:text-5xl font-extrabold text-sand-900 font-headline"><span data-target="3" class="ctr">0</span></div><p class="mt-1.5 text-sm text-sand-700">Capas de proteccion IA</p></div>
   <div class="r d1 text-center"><div class="text-4xl lg:text-5xl font-extrabold text-sand-900 font-headline"><span data-target="8" class="ctr">0</span></div><p class="mt-1.5 text-sm text-sand-700">Agentes de IA integrados</p></div>
   <div class="r d2 text-center"><div class="text-4xl lg:text-5xl font-extrabold text-sand-900 font-headline"><span data-target="9" class="ctr">0</span></div><p class="mt-1.5 text-sm text-sand-700">Tipos de documento legal</p></div>
   <div class="r d3 text-center"><div class="text-4xl lg:text-5xl font-extrabold text-amber-500 font-headline">100<span class="text-2xl align-top">%</span></div><p class="mt-1.5 text-sm text-sand-700">Gratis y sin anuncios</p></div>
@@ -195,26 +211,26 @@ html{scroll-behavior:smooth}
   <div class="text-center max-w-2xl mx-auto mb-16">
     <span class="r inline-block text-[11px] font-bold uppercase tracking-[.25em] text-amber-500 mb-2">Funcionalidades</span>
     <h2 class="r d1 text-3xl lg:text-[2.6rem] font-extrabold text-sand-900 font-headline tracking-tight leading-[1.1]">Todo lo que necesitas para coparentar en paz</h2>
-    <p class="r d2 mt-4 text-sand-700">Cuatro herramientas integradas en una sola app, diseñadas para reducir conflictos y priorizar el bienestar de tus hijos.</p>
+    <p class="r d2 mt-4 text-sand-700">Cuatro herramientas integradas en una sola app, disenadas para reducir conflictos y priorizar el bienestar de tus hijos.</p>
   </div>
 
-  <!-- Feature 1: Mensajería — image left, text right -->
+  <!-- Feature 1: Mensajeria — image left, text right -->
   <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center mb-20">
     <div class="rl mini-phone w-[260px] lg:w-[280px] aspect-[9/19] mx-auto"><img src="assets/01_mensajes.jpg" alt="Chat mediado NidoSync" class="w-full" loading="lazy"/></div>
     <div class="rr">
       <div class="flex items-center gap-3 mb-4">
         <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-sand-900 to-sand-700 flex items-center justify-center"><span class="material-symbols-outlined text-white text-xl">forum</span></div>
-        <h3 class="text-2xl font-bold text-sand-900 font-headline">Mensajería mediada por IA</h3>
+        <h3 class="text-2xl font-bold text-sand-900 font-headline">Mensajeria mediada por IA</h3>
       </div>
-      <p class="text-base text-sand-700 leading-relaxed mb-5">Cada mensaje pasa por un análisis de sentimiento automático antes de ser enviado. La IA detecta hostilidad, sarcasmo y lenguaje conflictivo antes de que llegue al otro progenitor.</p>
+      <p class="text-base text-sand-700 leading-relaxed mb-5">Cada mensaje pasa por un analisis de sentimiento automatico antes de ser enviado. La IA detecta hostilidad, sarcasmo y lenguaje conflictivo antes de que llegue al otro progenitor.</p>
       <div class="space-y-3 mb-5">
-        <div class="flex items-start gap-3"><div class="w-7 h-7 rounded-full bg-med-green flex items-center justify-center shrink-0 mt-0.5"><span class="material-symbols-outlined text-white text-[15px]">check</span></div><div><span class="text-sm font-bold text-sand-900">Tono constructivo</span><p class="text-[13px] text-sand-600">Se envía directamente. Sin intervención.</p></div></div>
-        <div class="flex items-start gap-3"><div class="w-7 h-7 rounded-full bg-med-yellow flex items-center justify-center shrink-0 mt-0.5"><span class="material-symbols-outlined text-white text-[15px]">edit</span></div><div><span class="text-sm font-bold text-sand-900">Tensión detectada</span><p class="text-[13px] text-sand-600">Sugiere versión mejorada. Tú decides.</p></div></div>
+        <div class="flex items-start gap-3"><div class="w-7 h-7 rounded-full bg-med-green flex items-center justify-center shrink-0 mt-0.5"><span class="material-symbols-outlined text-white text-[15px]">check</span></div><div><span class="text-sm font-bold text-sand-900">Tono constructivo</span><p class="text-[13px] text-sand-600">Se envia directamente. Sin intervencion.</p></div></div>
+        <div class="flex items-start gap-3"><div class="w-7 h-7 rounded-full bg-med-yellow flex items-center justify-center shrink-0 mt-0.5"><span class="material-symbols-outlined text-white text-[15px]">edit</span></div><div><span class="text-sm font-bold text-sand-900">Tension detectada</span><p class="text-[13px] text-sand-600">Sugiere version mejorada. Tu decides.</p></div></div>
         <div class="flex items-start gap-3"><div class="w-7 h-7 rounded-full bg-med-red flex items-center justify-center shrink-0 mt-0.5"><span class="material-symbols-outlined text-white text-[15px]">shield</span></div><div><span class="text-sm font-bold text-sand-900">Hostilidad bloqueada</span><p class="text-[13px] text-sand-600">Ofrece alternativa respetuosa. Protege a tus hijos.</p></div></div>
       </div>
       <div class="flex gap-6 text-center">
-        <div><div class="text-2xl font-extrabold text-sand-900 font-headline">3 niveles</div><div class="text-[11px] text-sand-600">de mediación</div></div>
-        <div><div class="text-2xl font-extrabold text-sand-900 font-headline">Auto</div><div class="text-[11px] text-sand-600">análisis IA</div></div>
+        <div><div class="text-2xl font-extrabold text-sand-900 font-headline">3 niveles</div><div class="text-[11px] text-sand-600">de mediacion</div></div>
+        <div><div class="text-2xl font-extrabold text-sand-900 font-headline">Auto</div><div class="text-[11px] text-sand-600">analisis IA</div></div>
         <div><div class="text-2xl font-extrabold text-sand-900 font-headline">E2E</div><div class="text-[11px] text-sand-600">cifrado</div></div>
       </div>
     </div>
@@ -229,9 +245,9 @@ html{scroll-behavior:smooth}
       </div>
       <p class="text-base text-sand-700 leading-relaxed mb-5">Balance actualizado entre ambos progenitores. Registra gastos, escanea recibos con OCR y divide con total transparencia.</p>
       <div class="space-y-2.5">
-        <div class="flex items-center gap-2.5"><span class="material-symbols-outlined text-amber-500 text-lg">receipt_long</span><span class="text-sm text-sand-700"><strong class="text-sand-900">Escaneo OCR</strong> — fotografía el recibo y la IA extrae todo</span></div>
-        <div class="flex items-center gap-2.5"><span class="material-symbols-outlined text-amber-500 text-lg">pie_chart</span><span class="text-sm text-sand-700"><strong class="text-sand-900">10 categorías</strong> — educación, salud, ropa, transporte...</span></div>
-        <div class="flex items-center gap-2.5"><span class="material-symbols-outlined text-amber-500 text-lg">balance</span><span class="text-sm text-sand-700"><strong class="text-sand-900">Balance justo</strong> — quién pagó qué, cuánto se debe</span></div>
+        <div class="flex items-center gap-2.5"><span class="material-symbols-outlined text-amber-500 text-lg">receipt_long</span><span class="text-sm text-sand-700"><strong class="text-sand-900">Escaneo OCR</strong> — fotografia el recibo y la IA extrae todo</span></div>
+        <div class="flex items-center gap-2.5"><span class="material-symbols-outlined text-amber-500 text-lg">pie_chart</span><span class="text-sm text-sand-700"><strong class="text-sand-900">10 categorias</strong> — educacion, salud, ropa, transporte...</span></div>
+        <div class="flex items-center gap-2.5"><span class="material-symbols-outlined text-amber-500 text-lg">balance</span><span class="text-sm text-sand-700"><strong class="text-sand-900">Balance justo</strong> — quien pago que, cuanto se debe</span></div>
       </div>
     </div>
     <div class="rr order-1 lg:order-2 mini-phone w-[260px] lg:w-[280px] aspect-[9/19] mx-auto"><img src="assets/02_gastos.jpg" alt="Gastos compartidos" class="w-full" loading="lazy"/></div>
@@ -245,11 +261,11 @@ html{scroll-behavior:smooth}
         <div class="w-11 h-11 rounded-xl bg-sand-100 flex items-center justify-center"><span class="material-symbols-outlined text-sand-800 text-xl">calendar_month</span></div>
         <h3 class="text-2xl font-bold text-sand-900 font-headline">Calendario de custodia</h3>
       </div>
-      <p class="text-base text-sand-700 leading-relaxed mb-5">Visualiza quién tiene la custodia cada día con códigos de colores. Gestiona eventos, citas y solicitudes de cambio.</p>
+      <p class="text-base text-sand-700 leading-relaxed mb-5">Visualiza quien tiene la custodia cada dia con codigos de colores. Gestiona eventos, citas y solicitudes de cambio.</p>
       <div class="space-y-2.5">
         <div class="flex items-center gap-2.5"><span class="material-symbols-outlined text-sand-700 text-lg">view_week</span><span class="text-sm text-sand-700"><strong class="text-sand-900">Patrones flexibles</strong> — 50/50, 2-2-3, 5-2 o personalizado</span></div>
-        <div class="flex items-center gap-2.5"><span class="material-symbols-outlined text-sand-700 text-lg">swap_horiz</span><span class="text-sm text-sand-700"><strong class="text-sand-900">Cambios con IA</strong> — evaluación de equidad automática</span></div>
-        <div class="flex items-center gap-2.5"><span class="material-symbols-outlined text-sand-700 text-lg">palette</span><span class="text-sm text-sand-700"><strong class="text-sand-900">Colores por progenitor</strong> — claridad visual instantánea</span></div>
+        <div class="flex items-center gap-2.5"><span class="material-symbols-outlined text-sand-700 text-lg">swap_horiz</span><span class="text-sm text-sand-700"><strong class="text-sand-900">Cambios con IA</strong> — evaluacion de equidad automatica</span></div>
+        <div class="flex items-center gap-2.5"><span class="material-symbols-outlined text-sand-700 text-lg">palette</span><span class="text-sm text-sand-700"><strong class="text-sand-900">Colores por progenitor</strong> — claridad visual instantanea</span></div>
       </div>
     </div>
   </div>
@@ -263,12 +279,12 @@ html{scroll-behavior:smooth}
           <div class="w-11 h-11 rounded-xl bg-amber-500/20 flex items-center justify-center"><span class="material-symbols-outlined text-amber-400 text-xl">auto_awesome</span></div>
           <h3 class="text-2xl font-bold text-white font-headline">Asistente legal con IA</h3>
         </div>
-        <p class="text-base text-sand-400 leading-relaxed mb-5">Sube convenios, sentencias y acuerdos. La IA analiza cada página, extrae cláusulas y responde tus preguntas como si fuera un amigo abogado.</p>
+        <p class="text-base text-sand-400 leading-relaxed mb-5">Sube convenios, sentencias y acuerdos. La IA analiza cada pagina, extrae clausulas y responde tus preguntas como si fuera un amigo abogado.</p>
         <div class="space-y-2.5 mb-5">
-          <div class="flex items-center gap-2.5"><span class="material-symbols-outlined text-amber-400 text-lg">description</span><span class="text-sm text-sand-300"><strong class="text-white">Extracción de cláusulas</strong> — obligaciones, derechos, condiciones</span></div>
-          <div class="flex items-center gap-2.5"><span class="material-symbols-outlined text-amber-400 text-lg">chat</span><span class="text-sm text-sand-300"><strong class="text-white">Chat inteligente</strong> — "¿Cuánto es la pensión?" Respuestas basadas en tus documentos</span></div>
+          <div class="flex items-center gap-2.5"><span class="material-symbols-outlined text-amber-400 text-lg">description</span><span class="text-sm text-sand-300"><strong class="text-white">Extraccion de clausulas</strong> — obligaciones, derechos, condiciones</span></div>
+          <div class="flex items-center gap-2.5"><span class="material-symbols-outlined text-amber-400 text-lg">chat</span><span class="text-sm text-sand-300"><strong class="text-white">Chat inteligente</strong> — "Cuanto es la pension?" Respuestas basadas en tus documentos</span></div>
           <div class="flex items-center gap-2.5"><span class="material-symbols-outlined text-amber-400 text-lg">event_busy</span><span class="text-sm text-sand-300"><strong class="text-white">Alertas de vencimiento</strong> — nunca te pillan desprevenido</span></div>
-          <div class="flex items-center gap-2.5"><span class="material-symbols-outlined text-amber-400 text-lg">upload_file</span><span class="text-sm text-sand-300"><strong class="text-white">PDF, fotos y OCR</strong> — sube PDF o fotografía documentos</span></div>
+          <div class="flex items-center gap-2.5"><span class="material-symbols-outlined text-amber-400 text-lg">upload_file</span><span class="text-sm text-sand-300"><strong class="text-white">PDF, fotos y OCR</strong> — sube PDF o fotografia documentos</span></div>
         </div>
         <div class="inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/15 rounded-full px-4 py-1.5">
           <span class="material-symbols-outlined text-amber-400 text-[14px]">verified</span>
@@ -286,24 +302,24 @@ html{scroll-behavior:smooth}
 <section id="mediacion" class="py-16 lg:py-24 bg-sand-100/50 border-y border-sand-900/[.03]">
 <div class="max-w-[1440px] mx-auto px-5 sm:px-6">
   <div class="text-center max-w-xl mx-auto mb-12">
-    <span class="r inline-block text-[11px] font-bold uppercase tracking-[.25em] text-amber-500 mb-2">Cómo funciona</span>
-    <h2 class="r d1 text-3xl lg:text-[2.6rem] font-extrabold text-sand-900 font-headline tracking-tight leading-[1.1]">La mediación que previene conflictos</h2>
+    <span class="r inline-block text-[11px] font-bold uppercase tracking-[.25em] text-amber-500 mb-2">Como funciona</span>
+    <h2 class="r d1 text-3xl lg:text-[2.6rem] font-extrabold text-sand-900 font-headline tracking-tight leading-[1.1]">La mediacion que previene conflictos</h2>
     <p class="r d2 mt-3 text-sand-700">La IA analiza el tono de cada mensaje antes de enviarlo</p>
   </div>
   <div class="grid grid-cols-1 lg:grid-cols-3 gap-5 max-w-4xl mx-auto">
     <div class="r med-card bg-white rounded-xl p-6 border-med-green cursor-default">
       <div class="w-10 h-10 rounded-full bg-med-green/10 flex items-center justify-center mb-4"><span class="material-symbols-outlined text-med-green text-xl">check_circle</span></div>
       <h3 class="text-base font-bold text-sand-900 font-headline">Tono constructivo</h3>
-      <p class="mt-2 text-sm text-sand-700 leading-relaxed">El mensaje se envía directamente. La IA no detecta hostilidad ni tensión.</p>
+      <p class="mt-2 text-sm text-sand-700 leading-relaxed">El mensaje se envia directamente. La IA no detecta hostilidad ni tension.</p>
     </div>
     <div class="r d1 med-card bg-white rounded-xl p-6 border-med-yellow cursor-default">
       <div class="w-10 h-10 rounded-full bg-med-yellow/10 flex items-center justify-center mb-4"><span class="material-symbols-outlined text-med-yellow text-xl">edit_note</span></div>
       <h3 class="text-base font-bold text-sand-900 font-headline">Sugerencia de mejora</h3>
-      <p class="mt-2 text-sm text-sand-700 leading-relaxed">"Tu mensaje podria generar tensión. Te proponemos esta versión alternativa." Tú decides si aceptas.</p>
+      <p class="mt-2 text-sm text-sand-700 leading-relaxed">"Tu mensaje podria generar tension. Te proponemos esta version alternativa." Tu decides si aceptas.</p>
     </div>
     <div class="r d2 med-card bg-white rounded-xl p-6 border-med-red cursor-default">
       <div class="w-10 h-10 rounded-full bg-med-red/10 flex items-center justify-center mb-4"><span class="material-symbols-outlined text-med-red text-xl">shield</span></div>
-      <h3 class="text-base font-bold text-sand-900 font-headline">Protección activa</h3>
+      <h3 class="text-base font-bold text-sand-900 font-headline">Proteccion activa</h3>
       <p class="mt-2 text-sm text-sand-700 leading-relaxed">"Tu mensaje contiene lenguaje hostil." Se bloquea y se ofrece una alternativa respetuosa.</p>
     </div>
   </div>
@@ -316,9 +332,9 @@ html{scroll-behavior:smooth}
 <div class="max-w-[1440px] mx-auto px-5 sm:px-6">
   <!-- Title -->
   <div class="text-center max-w-2xl mx-auto mb-14">
-    <span class="r inline-block text-[11px] font-bold uppercase tracking-[.25em] text-amber-500 mb-2">Lo que más importa</span>
+    <span class="r inline-block text-[11px] font-bold uppercase tracking-[.25em] text-amber-500 mb-2">Lo que mas importa</span>
     <h2 class="r d1 text-3xl lg:text-[2.6rem] font-extrabold text-sand-900 font-headline tracking-tight leading-[1.1]">Ellos no eligieron esto</h2>
-    <p class="r d2 mt-4 text-lg text-sand-700 leading-relaxed">Pero tú puedes elegir cómo lo gestionas.</p>
+    <p class="r d2 mt-4 text-lg text-sand-700 leading-relaxed">Pero tu puedes elegir como lo gestionas.</p>
   </div>
 
   <!-- Two columns: problem vs solution -->
@@ -326,18 +342,18 @@ html{scroll-behavior:smooth}
     <!-- Left: the problem -->
     <div class="rl">
       <div class="rounded-2xl overflow-hidden mb-6">
-        <img src="assets/emotional_child.jpg" alt="Niña pensativa" class="w-full" loading="lazy"/>
+        <img src="assets/emotional_child.jpg" alt="Nina pensativa" class="w-full" loading="lazy"/>
       </div>
       <h3 class="text-xl font-bold text-sand-900 font-headline mb-3">El conflicto que no ven</h3>
-      <p class="text-base text-sand-700 leading-relaxed">Un divorcio es difícil para todos. Pero para tus hijos, lo más difícil no es que sus padres se separen — es ver cómo se tratan después. Los niños absorben cada tensión, cada mensaje hostil, cada discusión por dinero. No lo dicen, pero lo sienten todo.</p>
+      <p class="text-base text-sand-700 leading-relaxed">Un divorcio es dificil para todos. Pero para tus hijos, lo mas dificil no es que sus padres se separen — es ver como se tratan despues. Los ninos absorben cada tension, cada mensaje hostil, cada discusion por dinero. No lo dicen, pero lo sienten todo.</p>
     </div>
     <!-- Right: the solution -->
     <div class="rr">
       <div class="rounded-2xl overflow-hidden mb-6">
         <img src="assets/emotional_family.jpg" alt="Padre abrazando a su hija" class="w-full" loading="lazy"/>
       </div>
-      <h3 class="text-xl font-bold text-sand-900 font-headline mb-3">La paz que sí puedes darles</h3>
-      <p class="text-base text-sand-700 leading-relaxed">Tus hijos no necesitan padres perfectos. Necesitan padres que cooperen. NidoSync existe para que la comunicación entre progenitores deje de ser un campo de batalla y se convierta en un puente. Para que ellos vean colaboración, no conflicto.</p>
+      <h3 class="text-xl font-bold text-sand-900 font-headline mb-3">La paz que si puedes darles</h3>
+      <p class="text-base text-sand-700 leading-relaxed">Tus hijos no necesitan padres perfectos. Necesitan padres que cooperen. NidoSync existe para que la comunicacion entre progenitores deje de ser un campo de batalla y se convierta en un puente. Para que ellos vean colaboracion, no conflicto.</p>
     </div>
   </div>
 
@@ -347,7 +363,7 @@ html{scroll-behavior:smooth}
       <span class="material-symbols-outlined text-amber-500 text-3xl mb-4 block">favorite</span>
       <blockquote class="text-xl lg:text-2xl font-semibold text-sand-900 font-headline leading-relaxed italic">"Tus hijos merecen ver a sus padres colaborar, no pelear."</blockquote>
       <div class="mt-6">
-        <a href="#" class="grad inline-block px-8 py-3.5 rounded-xl font-headline text-[15px] font-bold transition-all duration-300 active:scale-[.97] cursor-pointer">Empieza a coparentar en paz</a>
+        <a href="APPSTORE_URL_PLACEHOLDER" target="_blank" class="grad inline-block px-8 py-3.5 rounded-xl font-headline text-[15px] font-bold transition-all duration-300 active:scale-[.97] cursor-pointer no-underline text-white">Empieza a coparentar en paz</a>
       </div>
     </div>
   </div>
@@ -359,7 +375,7 @@ html{scroll-behavior:smooth}
 <div class="max-w-[1440px] mx-auto px-5 sm:px-6">
   <div class="text-center max-w-xl mx-auto mb-12">
     <span class="r inline-block text-[11px] font-bold uppercase tracking-[.25em] text-amber-500 mb-2">La app</span>
-    <h2 class="r d1 text-3xl lg:text-[2.6rem] font-extrabold text-sand-900 font-headline tracking-tight leading-[1.1]">Diseñada para la tranquilidad</h2>
+    <h2 class="r d1 text-3xl lg:text-[2.6rem] font-extrabold text-sand-900 font-headline tracking-tight leading-[1.1]">Disenada para la tranquilidad</h2>
   </div>
   <!-- Desktop fan -->
   <div class="r hidden lg:flex justify-center items-end gap-5 py-8">
@@ -367,7 +383,7 @@ html{scroll-behavior:smooth}
     <div class="fan mini-phone w-[210px] aspect-[9/19]" style="transform:rotate(-4deg) translateY(14px)"><img src="assets/01_mensajes.jpg" alt="Mensajes" class="w-full" loading="lazy"/></div>
     <div class="fan mini-phone w-[210px] aspect-[9/19]" style="transform:rotate(-1.5deg) translateY(4px)"><img src="assets/02_gastos.jpg" alt="Gastos" class="w-full" loading="lazy"/></div>
     <div class="fan mini-phone w-[240px] aspect-[9/19] z-[2] !shadow-xl" style="transform:scale(1.06)"><img src="assets/04_calendario.jpg" alt="Calendario" class="w-full" loading="lazy"/></div>
-    <div class="fan mini-phone w-[210px] aspect-[9/19]" style="transform:rotate(1.5deg) translateY(4px)"><img src="assets/04c_calendario_dia_actual.jpg" alt="Vista día" class="w-full" loading="lazy"/></div>
+    <div class="fan mini-phone w-[210px] aspect-[9/19]" style="transform:rotate(1.5deg) translateY(4px)"><img src="assets/04c_calendario_dia_actual.jpg" alt="Vista dia" class="w-full" loading="lazy"/></div>
     <div class="fan mini-phone w-[210px] aspect-[9/19]" style="transform:rotate(4deg) translateY(14px)"><img src="assets/02b_gastos_alt.jpg" alt="Gastos co-padre" class="w-full" loading="lazy"/></div>
     <div class="fan mini-phone w-[210px] aspect-[9/19]" style="transform:rotate(8deg) translateY(36px)"><img src="assets/06_legal.png" alt="Legal" class="w-full" loading="lazy"/></div>
   </div>
@@ -378,7 +394,7 @@ html{scroll-behavior:smooth}
     <div class="mini-phone w-[180px] shrink-0 aspect-[9/19] snap-center"><img src="assets/02_gastos.jpg" alt="Gastos" class="w-full" loading="lazy"/></div>
     <div class="mini-phone w-[180px] shrink-0 aspect-[9/19] snap-center"><img src="assets/02b_gastos_alt.jpg" alt="Gastos co-padre" class="w-full" loading="lazy"/></div>
     <div class="mini-phone w-[180px] shrink-0 aspect-[9/19] snap-center"><img src="assets/04_calendario.jpg" alt="Calendario" class="w-full" loading="lazy"/></div>
-    <div class="mini-phone w-[180px] shrink-0 aspect-[9/19] snap-center"><img src="assets/04c_calendario_dia_actual.jpg" alt="Vista día" class="w-full" loading="lazy"/></div>
+    <div class="mini-phone w-[180px] shrink-0 aspect-[9/19] snap-center"><img src="assets/04c_calendario_dia_actual.jpg" alt="Vista dia" class="w-full" loading="lazy"/></div>
     <div class="mini-phone w-[180px] shrink-0 aspect-[9/19] snap-center"><img src="assets/06_legal.png" alt="Legal" class="w-full" loading="lazy"/></div>
   </div>
   <div class="r d2 hidden lg:flex justify-center gap-16 mt-6 text-xs font-bold text-sand-700 uppercase tracking-wider">
@@ -394,8 +410,8 @@ html{scroll-behavior:smooth}
     <div>
       <span class="text-sm font-bold text-med-red/70 uppercase tracking-wider">El problema</span>
       <h3 class="mt-2 text-2xl lg:text-3xl font-extrabold text-sand-900 font-headline tracking-tight">"Discutimos por cada mensaje"</h3>
-      <p class="mt-3 text-sand-700 leading-relaxed">Cada conversación se convierte en una discusión. El tono escala y los hijos quedan en medio.</p>
-      <div class="mt-4 flex items-center gap-2"><span class="material-symbols-outlined text-med-green text-xl">arrow_forward</span><span class="text-sm font-semibold text-sand-900">La mediación IA convierte hostilidad en diálogo constructivo</span></div>
+      <p class="mt-3 text-sand-700 leading-relaxed">Cada conversacion se convierte en una discusion. El tono escala y los hijos quedan en medio.</p>
+      <div class="mt-4 flex items-center gap-2"><span class="material-symbols-outlined text-med-green text-xl">arrow_forward</span><span class="text-sm font-semibold text-sand-900">La mediacion IA convierte hostilidad en dialogo constructivo</span></div>
     </div>
     <div class="mini-phone w-[200px] aspect-[9/19] mx-auto"><img src="assets/01_mensajes.jpg" alt="Mensajes mediados" class="w-full" loading="lazy"/></div>
   </div>
@@ -403,8 +419,8 @@ html{scroll-behavior:smooth}
     <div class="order-2 lg:order-1 mini-phone w-[200px] aspect-[9/19] mx-auto"><img src="assets/06_legal.png" alt="Asistente legal" class="w-full" loading="lazy"/></div>
     <div class="order-1 lg:order-2">
       <span class="text-sm font-bold text-med-yellow/70 uppercase tracking-wider">El problema</span>
-      <h3 class="mt-2 text-2xl lg:text-3xl font-extrabold text-sand-900 font-headline tracking-tight">"No sé qué dice mi convenio"</h3>
-      <p class="mt-3 text-sand-700 leading-relaxed">Documentos legales llenos de cláusulas incomprensibles. Consultar un abogado por cada duda es caro y lento.</p>
+      <h3 class="mt-2 text-2xl lg:text-3xl font-extrabold text-sand-900 font-headline tracking-tight">"No se que dice mi convenio"</h3>
+      <p class="mt-3 text-sand-700 leading-relaxed">Documentos legales llenos de clausulas incomprensibles. Consultar un abogado por cada duda es caro y lento.</p>
       <div class="mt-4 flex items-center gap-2"><span class="material-symbols-outlined text-med-green text-xl">arrow_forward</span><span class="text-sm font-semibold text-sand-900">El asistente legal responde en lenguaje sencillo</span></div>
     </div>
   </div>
@@ -412,8 +428,8 @@ html{scroll-behavior:smooth}
     <div>
       <span class="text-sm font-bold text-amber-500/70 uppercase tracking-wider">El problema</span>
       <h3 class="mt-2 text-2xl lg:text-3xl font-extrabold text-sand-900 font-headline tracking-tight">"Siempre peleamos por dinero"</h3>
-      <p class="mt-3 text-sand-700 leading-relaxed">Quién pagó qué, cuánto se debe, dónde están los recibos. Sin un sistema, todo es palabra contra palabra.</p>
-      <div class="mt-4 flex items-center gap-2"><span class="material-symbols-outlined text-med-green text-xl">arrow_forward</span><span class="text-sm font-semibold text-sand-900">Balance transparente con recibos escaneados y categorías automáticas</span></div>
+      <p class="mt-3 text-sand-700 leading-relaxed">Quien pago que, cuanto se debe, donde estan los recibos. Sin un sistema, todo es palabra contra palabra.</p>
+      <div class="mt-4 flex items-center gap-2"><span class="material-symbols-outlined text-med-green text-xl">arrow_forward</span><span class="text-sm font-semibold text-sand-900">Balance transparente con recibos escaneados y categorias automaticas</span></div>
     </div>
     <div class="mini-phone w-[200px] aspect-[9/19] mx-auto"><img src="assets/02_gastos.jpg" alt="Gastos compartidos" class="w-full" loading="lazy"/></div>
   </div>
@@ -425,11 +441,11 @@ html{scroll-behavior:smooth}
 <div class="max-w-[1440px] mx-auto px-5 sm:px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
   <div>
     <span class="r inline-block text-[11px] font-bold uppercase tracking-[.25em] text-amber-400 mb-2">Seguridad</span>
-    <h2 class="r d1 text-3xl lg:text-[2.6rem] font-extrabold font-headline tracking-tight leading-tight">Tus datos están<br/>protegidos. Siempre.</h2>
-    <p class="r d2 mt-4 text-base text-sand-400 leading-relaxed max-w-md">Información sensible sobre tu familia merece los estándares más exigentes.</p>
+    <h2 class="r d1 text-3xl lg:text-[2.6rem] font-extrabold font-headline tracking-tight leading-tight">Tus datos estan<br/>protegidos. Siempre.</h2>
+    <p class="r d2 mt-4 text-base text-sand-400 leading-relaxed max-w-md">Informacion sensible sobre tu familia merece los estandares mas exigentes.</p>
   </div>
   <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-    <div class="r bg-white/[.04] border border-white/[.06] rounded-2xl p-5 hover:bg-white/[.08] transition-colors cursor-default"><span class="material-symbols-outlined text-amber-400 text-2xl mb-3 block">encrypted</span><h3 class="text-sm font-bold font-headline">Cifrado E2E</h3><p class="mt-1 text-xs text-sand-400 leading-relaxed">TLS en tránsito, AES-256 en reposo.</p></div>
+    <div class="r bg-white/[.04] border border-white/[.06] rounded-2xl p-5 hover:bg-white/[.08] transition-colors cursor-default"><span class="material-symbols-outlined text-amber-400 text-2xl mb-3 block">encrypted</span><h3 class="text-sm font-bold font-headline">Cifrado E2E</h3><p class="mt-1 text-xs text-sand-400 leading-relaxed">TLS en transito, AES-256 en reposo.</p></div>
     <div class="r d1 bg-white/[.04] border border-white/[.06] rounded-2xl p-5 hover:bg-white/[.08] transition-colors cursor-default"><span class="material-symbols-outlined text-amber-400 text-2xl mb-3 block">shield</span><h3 class="text-sm font-bold font-headline">RGPD</h3><p class="mt-1 text-xs text-sand-400 leading-relaxed">Exporta o elimina tus datos cuando quieras.</p></div>
     <div class="r d2 bg-white/[.04] border border-white/[.06] rounded-2xl p-5 hover:bg-white/[.08] transition-colors cursor-default"><span class="material-symbols-outlined text-amber-400 text-2xl mb-3 block">visibility_off</span><h3 class="text-sm font-bold font-headline">Sin rastreo</h3><p class="mt-1 text-xs text-sand-400 leading-relaxed">No vendemos datos. Sin publicidad.</p></div>
     <div class="r d3 bg-white/[.04] border border-white/[.06] rounded-2xl p-5 hover:bg-white/[.08] transition-colors cursor-default"><span class="material-symbols-outlined text-amber-400 text-2xl mb-3 block">smart_toy</span><h3 class="text-sm font-bold font-headline">IA responsable</h3><p class="mt-1 text-xs text-sand-400 leading-relaxed">Tus datos no entrenan modelos.</p></div>
@@ -445,15 +461,15 @@ html{scroll-behavior:smooth}
     <h2 class="r d1 text-3xl lg:text-[2.5rem] font-extrabold text-sand-900 font-headline tracking-tight">Preguntas frecuentes</h2>
   </div>
   <div class="r d2 bg-white rounded-2xl border border-sand-600/[.05] divide-y divide-sand-600/[.05] overflow-hidden">
-    <div class="faq-item cursor-pointer" onclick="this.classList.toggle('faq-open')"><div class="flex justify-between items-center px-6 py-5"><span class="text-[15px] font-semibold text-sand-900">¿NidoSync es gratuito?</span><span class="material-symbols-outlined faq-chev text-sand-700 text-xl">expand_more</span></div><div class="faq-body px-6 text-sm text-sand-700 leading-relaxed">Sí. Todas las funcionalidades están incluidas sin coste: mensajería mediada, gastos compartidos, calendario de custodia y análisis de documentos legales con IA.</div></div>
-    <div class="faq-item cursor-pointer" onclick="this.classList.toggle('faq-open')"><div class="flex justify-between items-center px-6 py-5"><span class="text-[15px] font-semibold text-sand-900">¿El otro progenitor necesita la app?</span><span class="material-symbols-outlined faq-chev text-sand-700 text-xl">expand_more</span></div><div class="faq-body px-6 text-sm text-sand-700 leading-relaxed">Sí. Ambos progenitores necesitan NidoSync para comunicarse y gestionar la coparentalidad. La invitación se hace con un código único que generas desde la app.</div></div>
-    <div class="faq-item cursor-pointer" onclick="this.classList.toggle('faq-open')"><div class="flex justify-between items-center px-6 py-5"><span class="text-[15px] font-semibold text-sand-900">¿La IA puede bloquear mis mensajes?</span><span class="material-symbols-outlined faq-chev text-sand-700 text-xl">expand_more</span></div><div class="faq-body px-6 text-sm text-sand-700 leading-relaxed">La IA sugiere versiones constructivas cuando detecta tensión. En casos de lenguaje hostil, bloquea el envío pero siempre ofrece una alternativa respetuosa. Tú siempre tienes el control.</div></div>
-    <div class="faq-item cursor-pointer" onclick="this.classList.toggle('faq-open')"><div class="flex justify-between items-center px-6 py-5"><span class="text-[15px] font-semibold text-sand-900">¿Cómo funciona el escaneo de recibos?</span><span class="material-symbols-outlined faq-chev text-sand-700 text-xl">expand_more</span></div><div class="faq-body px-6 text-sm text-sand-700 leading-relaxed">Abre la cámara desde la sección de Gastos, fotografía el recibo y la IA extrae automáticamente el importe, la fecha y la categoría. Sin introducir datos a mano.</div></div>
-    <div class="faq-item cursor-pointer" onclick="this.classList.toggle('faq-open')"><div class="flex justify-between items-center px-6 py-5"><span class="text-[15px] font-semibold text-sand-900">¿Mis documentos legales están seguros?</span><span class="material-symbols-outlined faq-chev text-sand-700 text-xl">expand_more</span></div><div class="faq-body px-6 text-sm text-sand-700 leading-relaxed">Completamente. Cifrado en reposo, acceso mediante URLs firmadas con expiración temporal. Solo tú puedes ver tus documentos.</div></div>
-    <div class="faq-item cursor-pointer" onclick="this.classList.toggle('faq-open')"><div class="flex justify-between items-center px-6 py-5"><span class="text-[15px] font-semibold text-sand-900">¿El análisis legal sustituye a un abogado?</span><span class="material-symbols-outlined faq-chev text-sand-700 text-xl">expand_more</span></div><div class="faq-body px-6 text-sm text-sand-700 leading-relaxed">No. Es una herramienta informativa que te ayuda a entender tus documentos en lenguaje sencillo. Para decisiones legales importantes, siempre consulta con un profesional.</div></div>
-    <div class="faq-item cursor-pointer" onclick="this.classList.toggle('faq-open')"><div class="flex justify-between items-center px-6 py-5"><span class="text-[15px] font-semibold text-sand-900">¿Puedo exportar datos para un proceso judicial?</span><span class="material-symbols-outlined faq-chev text-sand-700 text-xl">expand_more</span></div><div class="faq-body px-6 text-sm text-sand-700 leading-relaxed">Sí. Desde Ajustes puedes solicitar la exportación completa de todos tus datos (mensajes, gastos, calendario, documentos) en cumplimiento con el RGPD. Los recibirás por email.</div></div>
+    <div class="faq-item cursor-pointer" onclick="this.classList.toggle('faq-open')"><div class="flex justify-between items-center px-6 py-5"><span class="text-[15px] font-semibold text-sand-900">Es NidoSync gratuito?</span><span class="material-symbols-outlined faq-chev text-sand-700 text-xl">expand_more</span></div><div class="faq-body px-6 text-sm text-sand-700 leading-relaxed">Si. Todas las funcionalidades estan incluidas sin coste: mensajeria mediada, gastos compartidos, calendario de custodia y analisis de documentos legales con IA.</div></div>
+    <div class="faq-item cursor-pointer" onclick="this.classList.toggle('faq-open')"><div class="flex justify-between items-center px-6 py-5"><span class="text-[15px] font-semibold text-sand-900">El otro progenitor necesita la app?</span><span class="material-symbols-outlined faq-chev text-sand-700 text-xl">expand_more</span></div><div class="faq-body px-6 text-sm text-sand-700 leading-relaxed">Si. Ambos progenitores necesitan NidoSync para comunicarse y gestionar la coparentalidad. La invitacion se hace con un codigo unico que generas desde la app.</div></div>
+    <div class="faq-item cursor-pointer" onclick="this.classList.toggle('faq-open')"><div class="flex justify-between items-center px-6 py-5"><span class="text-[15px] font-semibold text-sand-900">La IA puede bloquear mis mensajes?</span><span class="material-symbols-outlined faq-chev text-sand-700 text-xl">expand_more</span></div><div class="faq-body px-6 text-sm text-sand-700 leading-relaxed">La IA sugiere versiones constructivas cuando detecta tension. En casos de lenguaje hostil, bloquea el envio pero siempre ofrece una alternativa respetuosa. Tu siempre tienes el control.</div></div>
+    <div class="faq-item cursor-pointer" onclick="this.classList.toggle('faq-open')"><div class="flex justify-between items-center px-6 py-5"><span class="text-[15px] font-semibold text-sand-900">Como funciona el escaneo de recibos?</span><span class="material-symbols-outlined faq-chev text-sand-700 text-xl">expand_more</span></div><div class="faq-body px-6 text-sm text-sand-700 leading-relaxed">Abre la camara desde la seccion de Gastos, fotografia el recibo y la IA extrae automaticamente el importe, la fecha y la categoria. Sin introducir datos a mano.</div></div>
+    <div class="faq-item cursor-pointer" onclick="this.classList.toggle('faq-open')"><div class="flex justify-between items-center px-6 py-5"><span class="text-[15px] font-semibold text-sand-900">Mis documentos legales estan seguros?</span><span class="material-symbols-outlined faq-chev text-sand-700 text-xl">expand_more</span></div><div class="faq-body px-6 text-sm text-sand-700 leading-relaxed">Completamente. Cifrado en reposo, acceso mediante URLs firmadas con expiracion temporal. Solo tu puedes ver tus documentos.</div></div>
+    <div class="faq-item cursor-pointer" onclick="this.classList.toggle('faq-open')"><div class="flex justify-between items-center px-6 py-5"><span class="text-[15px] font-semibold text-sand-900">El analisis legal sustituye a un abogado?</span><span class="material-symbols-outlined faq-chev text-sand-700 text-xl">expand_more</span></div><div class="faq-body px-6 text-sm text-sand-700 leading-relaxed">No. Es una herramienta informativa que te ayuda a entender tus documentos en lenguaje sencillo. Para decisiones legales importantes, siempre consulta con un profesional.</div></div>
+    <div class="faq-item cursor-pointer" onclick="this.classList.toggle('faq-open')"><div class="flex justify-between items-center px-6 py-5"><span class="text-[15px] font-semibold text-sand-900">Puedo exportar datos para un proceso judicial?</span><span class="material-symbols-outlined faq-chev text-sand-700 text-xl">expand_more</span></div><div class="faq-body px-6 text-sm text-sand-700 leading-relaxed">Si. Desde Ajustes puedes solicitar la exportacion completa de todos tus datos (mensajes, gastos, calendario, documentos) en cumplimiento con el RGPD. Los recibiras por email.</div></div>
   </div>
-  <p class="mt-5 text-center text-sm text-sand-700">¿Más preguntas? <a href="mailto:soporte@nidosync.com" class="text-amber-600 font-semibold hover:underline cursor-pointer">soporte@nidosync.com</a></p>
+  <p class="mt-5 text-center text-sm text-sand-700">Mas preguntas? <a href="mailto:soporte@nidosync.com" class="text-amber-600 font-semibold hover:underline cursor-pointer">soporte@nidosync.com</a></p>
 </div>
 </section>
 
@@ -463,30 +479,39 @@ html{scroll-behavior:smooth}
   <div class="rs bg-gradient-to-br from-sand-900 via-sand-900 to-sand-800 rounded-3xl p-10 lg:p-14 text-center text-white relative overflow-hidden">
     <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(217,170,96,.08),transparent_60%)]"></div>
     <div class="relative">
-      <h2 class="text-3xl lg:text-[2.6rem] font-extrabold font-headline tracking-tight leading-tight">Descarga NidoSync.</h2>
-      <p class="mt-3 text-base text-sand-400 max-w-md mx-auto">Gratuita. Sin anuncios. Sin letra pequeña. Solo una herramienta para que tus hijos vean a sus padres colaborar.</p>
+      <h2 class="text-3xl lg:text-[2.6rem] font-extrabold font-headline tracking-tight leading-tight">Descarga NidoSync gratis.</h2>
+      <p class="mt-3 text-base text-sand-400 max-w-md mx-auto">La app de coparentalidad con IA que transforma conflictos en colaboracion. Disponible en el App Store.</p>
       <div class="mt-7 flex justify-center">
-        <a href="APPSTORE_URL_PLACEHOLDER" target="_blank" class="bg-white text-sand-900 px-7 py-3.5 rounded-xl font-headline text-[15px] font-bold hover:bg-sand-100 transition-all active:scale-[.97] cursor-pointer flex items-center gap-2 no-underline"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>Descargar en App Store</a>
+        <a href="APPSTORE_URL_PLACEHOLDER" target="_blank" class="appstore-badge">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+          <span class="badge-text"><span class="badge-text-top">Disponible en el</span><span class="badge-text-bottom">App Store</span></span>
+        </a>
       </div>
-      <p class="mt-3 text-sm text-sand-500">Disponible gratis en App Store · Android próximamente</p>
-      <p class="mt-5 text-sm text-sand-500">¿Ya usas NidoSync? <a href="feedback.html" class="text-amber-400 font-semibold hover:underline cursor-pointer">Danos tu feedback</a></p>
+      <p class="mt-3 text-sm text-sand-500">Disponible en iOS · Android proximamente</p>
+      <p class="mt-5 text-sm text-sand-500">Ya usas NidoSync? <a href="feedback.html" class="text-amber-400 font-semibold hover:underline cursor-pointer">Danos tu feedback</a></p>
     </div>
   </div>
 </div>
 </section>
 
 <!-- ═══ ANDROID SIGNUP ═══ -->
-<section class="py-12 bg-sand-100">
-<div class="max-w-xl mx-auto px-5 sm:px-6 text-center">
-  <div class="r flex items-center justify-center gap-2 mb-3">
-    <svg class="w-6 h-6 text-sand-700" viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 9.48l1.84-3.18c.16-.31.04-.69-.26-.85-.29-.15-.65-.06-.83.22l-1.88 3.24a11.463 11.463 0 00-8.94 0L5.65 5.67c-.19-.29-.58-.38-.87-.2-.28.18-.37.54-.22.83L6.4 9.48A10.78 10.78 0 002 18h20a10.78 10.78 0 00-4.4-8.52zM7 15.25a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5zm10 0a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5z"/></svg>
-    <h3 class="text-lg font-bold font-headline text-sand-900">¿Usas Android?</h3>
+<section class="py-14 lg:py-18 bg-[#f8f3ee] border-t border-sand-900/[.04]">
+<div class="max-w-2xl mx-auto px-5 sm:px-6 text-center android-signup">
+  <div class="r">
+    <div class="flex justify-center mb-4">
+      <div class="w-12 h-12 rounded-xl bg-sand-200 flex items-center justify-center">
+        <span class="material-symbols-outlined text-sand-700 text-2xl">phone_android</span>
+      </div>
+    </div>
+    <h3 class="text-xl lg:text-2xl font-extrabold text-sand-900 font-headline tracking-tight">Usas Android?</h3>
+    <p class="mt-2 text-base text-sand-700 leading-relaxed">Dejanos tu email y te avisamos cuando este disponible.</p>
+    <form action="https://formspree.io/f/FORM_ID_PLACEHOLDER" method="POST" class="mt-6 flex flex-col sm:flex-row gap-3 max-w-lg mx-auto">
+      <input type="email" name="email" required placeholder="tu@email.com" class="flex-1 min-w-0"/>
+      <input type="hidden" name="_subject" value="NidoSync Android - Lista de espera"/>
+      <button type="submit">Avisame</button>
+    </form>
+    <p class="mt-3 text-xs text-sand-600">Solo para avisarte del lanzamiento. Sin spam.</p>
   </div>
-  <p class="text-sm text-sand-700 mb-5">Estamos trabajando en la versión para Android. Déjanos tu email y te avisamos en cuanto esté disponible.</p>
-  <form action="https://formspree.io/f/FORM_ID_PLACEHOLDER" method="POST" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-    <input type="email" name="email" placeholder="tu@email.com" required class="flex-1 px-4 py-3 rounded-xl border border-sand-300 bg-white text-sm text-sand-900 placeholder:text-sand-500 focus:outline-none focus:ring-2 focus:ring-amber-500/40 focus:border-amber-500"/>
-    <button type="submit" class="grad px-6 py-3 rounded-xl text-sm font-bold font-headline transition-all active:scale-[.97] cursor-pointer text-white">Avisarme</button>
-  </form>
 </div>
 </section>
 
@@ -496,10 +521,10 @@ html{scroll-behavior:smooth}
   <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
     <div class="md:col-span-2">
       <span class="text-xl font-extrabold text-sand-900 font-headline">NidoSync</span>
-      <p class="mt-2 text-sm text-sand-700 max-w-sm leading-relaxed">Coparentalidad sin conflictos. Comunicación mediada, gastos transparentes, custodia organizada y documentos legales analizados por IA.</p>
+      <p class="mt-2 text-sm text-sand-700 max-w-sm leading-relaxed">Coparentalidad sin conflictos. Comunicacion mediada, gastos transparentes, custodia organizada y documentos legales analizados por IA.</p>
     </div>
-    <div><h4 class="text-xs font-bold text-sand-900 uppercase tracking-wider mb-3">Producto</h4><ul class="space-y-2 text-sm text-sand-700"><li><a href="#features" class="hover:text-sand-900 transition-colors cursor-pointer">Funcionalidades</a></li><li><a href="#mediacion" class="hover:text-sand-900 transition-colors cursor-pointer">Mediación IA</a></li><li><a href="#seguridad" class="hover:text-sand-900 transition-colors cursor-pointer">Seguridad</a></li><li><a href="profesionales.html" class="hover:text-sand-900 transition-colors cursor-pointer">Profesionales</a></li><li><a href="#faq" class="hover:text-sand-900 transition-colors cursor-pointer">FAQ</a></li><li><a href="feedback.html" class="hover:text-sand-900 transition-colors cursor-pointer">Dar feedback</a></li></ul></div>
-    <div><h4 class="text-xs font-bold text-sand-900 uppercase tracking-wider mb-3">Legal</h4><ul class="space-y-2 text-sm text-sand-700"><li><a href="privacidad.html" class="hover:text-sand-900 transition-colors cursor-pointer">Política de privacidad</a></li><li><a href="terminos.html" class="hover:text-sand-900 transition-colors cursor-pointer">Términos de servicio</a></li><li><a href="rgpd.html" class="hover:text-sand-900 transition-colors cursor-pointer">Derechos RGPD</a></li></ul></div>
+    <div><h4 class="text-xs font-bold text-sand-900 uppercase tracking-wider mb-3">Producto</h4><ul class="space-y-2 text-sm text-sand-700"><li><a href="#features" class="hover:text-sand-900 transition-colors cursor-pointer">Funcionalidades</a></li><li><a href="#mediacion" class="hover:text-sand-900 transition-colors cursor-pointer">Mediacion IA</a></li><li><a href="#seguridad" class="hover:text-sand-900 transition-colors cursor-pointer">Seguridad</a></li><li><a href="#faq" class="hover:text-sand-900 transition-colors cursor-pointer">FAQ</a></li><li><a href="feedback.html" class="hover:text-sand-900 transition-colors cursor-pointer">Dar feedback</a></li></ul></div>
+    <div><h4 class="text-xs font-bold text-sand-900 uppercase tracking-wider mb-3">Legal</h4><ul class="space-y-2 text-sm text-sand-700"><li><a href="privacidad.html" class="hover:text-sand-900 transition-colors cursor-pointer">Politica de privacidad</a></li><li><a href="terminos.html" class="hover:text-sand-900 transition-colors cursor-pointer">Terminos de servicio</a></li><li><a href="rgpd.html" class="hover:text-sand-900 transition-colors cursor-pointer">Derechos RGPD</a></li></ul></div>
   </div>
   <div class="border-t border-sand-600/10 pt-5 flex flex-col md:flex-row justify-between items-center gap-3">
     <p class="text-xs text-sand-700">&copy; 2026 NidoSync. Todos los derechos reservados.</p>
